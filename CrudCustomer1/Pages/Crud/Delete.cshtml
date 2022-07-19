@@ -1,0 +1,40 @@
+﻿@page
+@model CrudCustomer1.Pages.Crud.DeleteModel
+@{ Layout = "Shared/_FormLayout";
+    ViewData["Title"] = "Delete Customers";
+}
+
+<form method="post" style=" direction: ltr; text-align: left;">
+    <h1>@ViewData["Title"]</h1>
+
+    <div>
+        <label>First name: </label>&emsp;
+        <label>@Model.foundedCustomer.Firstname</label><br><br>
+    </div>
+    <div>
+        <label>Last name: </label>&emsp;
+        <label>@Model.foundedCustomer.Lastname</label><br><br>
+    </div>
+    <div>
+        <label>Date Of Birth: </label>&emsp;
+        <label>@Model.foundedCustomer.DateOfBirth.Date.ToString("MM/dd/yyyy")</label><br><br>
+    </div>
+    <div>
+        <label>Phone Number: </label>&emsp;
+        <label>@Model.foundedCustomer.PhoneNumber</label><br><br>
+    </div>
+    <div>
+        <label>Email: </label>&emsp;
+        <label>@Model.foundedCustomer.Email</label><br><br>
+    </div>
+    <div>
+        <label>Bank Account Number: </label>&emsp;
+        <label>@Model.foundedCustomer.BankAccountNumber</label><br><br>
+
+    </div>
+
+    <div>
+        <input type="submit" value="Delete" asp-page-handler="Delete" asp-route-id=@Model.C_id />
+        <a asp-page="Index"> Back to the List</a>
+    </div>
+</form>

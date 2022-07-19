@@ -1,0 +1,41 @@
+﻿@page
+@model CrudCustomer1.Pages.Crud.EditModel
+@{ Layout = "Shared/_FormLayout";
+    ViewData["Title"] = "Edit Customers";
+} 
+
+<form method="post">
+    <h1>@ViewData["Title"]</h1>
+
+    <div>
+        <input type="text" asp-for="Firstname" value="@Model.foundedCustomer.Firstname"  placeholder=" First name " required="" />
+        <span asp-validation-for="Firstname" style="color: red"></span>
+    </div>
+    <div>
+        <input type="text" asp-for="Lastname" value="@Model.foundedCustomer.Lastname" placeholder=" Last name " required="" />
+        <span asp-validation-for="Lastname" style="color: red"></span>
+    </div>
+    <div> 
+        <input type="date" asp-for="DateOfBirth" data-date="" data-date-format="DD MMMM YYYY" 
+               value="@Model.foundedCustomer.DateOfBirth.Date.ToString("yyyy-dd-MM")"  placeholder=" Date Of Birth " required="">
+
+        <span asp-validation-for="DateOfBirth" style="color: red"></span>
+
+    </div>
+    <div>
+        <input type="number" asp-for="PhoneNumber" value="@Model.foundedCustomer.PhoneNumber" placeholder=" Phone Number " required=""  />
+        <span asp-validation-for="PhoneNumber" style="color: red"></span>
+    </div>
+    <div>
+        <input type="email" asp-for="Email" value="@Model.foundedCustomer.Email" placeholder=" Email "  required=""/>
+        <span asp-validation-for="Email" style="color: red"></span>
+    </div>
+    <div>
+        <input type="text" asp-for="BankAccountNumber" value="@Model.foundedCustomer.BankAccountNumber" placeholder=" Bank Account Number "  />
+        <span asp-validation-for="BankAccountNumber" style="color: red"></span>
+    </div>
+    <div> 
+        <input type="submit" value="Save" asp-page-handler="Save" asp-route-id=@Model.C_id />
+        <a asp-page="Index"> Back to the List</a>
+    </div>
+</form> 

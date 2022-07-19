@@ -1,0 +1,61 @@
+﻿@page
+@model CrudCustomer1.Pages.Crud.IndexModel
+@{ 
+    Layout = "Shared/_TablesLayout";
+    ViewData["Title"] = "Crud Customers";
+}
+<form method="post">
+    <h1>@ViewData["Title"]</h1>
+    <input type="submit" value="Create" asp-page-handler="Create" />
+</form> 
+
+<div >
+    <table >
+        <tr>
+
+            @for (int i = 0; i < @Model.customersField.Length; i++)
+            {
+                <th>
+                    @Model.customersField[i]
+                </th>
+            }
+            <th>            </th>
+        </tr>
+
+        @for (int i = 0; i < @Model.Result.Count; i++)
+        {
+    <tr>
+
+        <td>
+            @Model.Result[i].Firstname
+        </td>
+        <td>
+            @Model.Result[i].Lastname
+        </td>
+        <td>
+            @Model.Result[i].DateOfBirth.Date.ToString("MM/dd/yyyy")
+        </td>
+        <td>
+            @Model.Result[i].PhoneNumber
+        </td>
+        <td>
+            @Model.Result[i].Email
+        </td>
+        <td>
+            @Model.Result[i].BankAccountNumber
+        </td>
+        <td>
+            <form asp-page-handler="Detail" asp-route-id=@i method="post">
+                <button>Detail  </button>
+            </form>
+            <form asp-page-handler="Edit" asp-route-id=@i method="post">
+                <button>Edit </button>
+            </form>
+            <form asp-page-handler="Delete" asp-route-id=@i method="post">
+                <button>Delete  </button>
+            </form>
+        </td>
+    </tr>
+        }
+    </table>
+</div>

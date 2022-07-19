@@ -1,0 +1,38 @@
+﻿@page
+@model CrudCustomer1.Pages.Crud.CreateModel
+@{
+    Layout = "Shared/_FormLayout";
+    ViewData["Title"] = "Create Customers";
+}
+<form method="post">
+    <h1>@ViewData["Title"]</h1>
+
+    <div>
+        <input type="text" asp-for="Firstname" placeholder=" First Name " required="" />
+        <span asp-validation-for="Firstname" style="color: red"></span>
+    </div>
+    <div>
+        <input type="text" asp-for="Lastname" placeholder=" Last name " required=""/>
+        <span asp-validation-for="Lastname" style="color: red"></span>
+    </div>
+    <div>
+        <input type="date" asp-for="DateOfBirth" placeholder="Date Of Birth" required="" />
+        <span asp-validation-for="DateOfBirth" style="color: red"></span>
+    </div>
+    <div>
+        <input type="number" asp-for="PhoneNumber" placeholder=" Phone Number "  />
+        <span asp-validation-for="PhoneNumber" style="color: red"></span>
+    </div>
+    <div>
+        <input type="email" asp-for="Email" placeholder=" Email " required=""/>
+        <span asp-validation-for="Email" style="color: red"></span>
+    </div>
+    <div>
+        <input type="text" asp-for="BankAccountNumber" placeholder=" Bank Account Number "  />
+        <span asp-validation-for="BankAccountNumber" style="color: red"></span>
+    </div>
+    <div>
+        <input type="submit" value="Register" />
+        <a asp-page="Index"> Back to the List</a>
+    </div>
+</form>
